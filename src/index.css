@@ -1,0 +1,29 @@
+#colors {
+  /* white */
+  color: #FFFFFF;
+  /* black */
+  color: #0B1005;
+  /* green */
+  color: #1A4301;
+  color: #538D22;
+  color: #AAD576;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
+
+
+body {
+  margin: 0;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
