@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-const Styles = styled.div`
+const Form = styled.form`
     {
-        
     }
+
 `;
 
 function Share() {
@@ -20,18 +19,16 @@ function Share() {
     };
 
     return (
-        <Styles>
-            <form onSubmit={handleForm}>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Email"
-                    required
-                />
-                <button type="submit">Share Url</button>
-            </form>
-        </Styles>
+        <Form onSubmit={handleForm}>
+            <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Email"
+                required
+            />
+            <button type="submit">Share Common Sense</button>
+        </Form>
     );
 };
 
