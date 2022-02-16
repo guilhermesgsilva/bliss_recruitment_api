@@ -1,4 +1,4 @@
-# Common Sense – Bliss Recruitment Application
+# Bliss Recruitment Application
 
 Application developed in the context of the Bliss Applications recruitment process for the Junior Front-End Developer position.
 
