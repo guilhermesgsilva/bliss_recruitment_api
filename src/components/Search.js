@@ -56,9 +56,7 @@ const Styles = styled.div`
 function Search (props) {
     const [searchParams, setSearchParams] = useSearchParams();
     
-
     let search = searchParams.get("filter") || "";
-    
 
     const [focused, setFocused] = useState(false)
     const onFocus = () => {
@@ -67,7 +65,6 @@ function Search (props) {
 
     const handleChange = (e) => {
         const filter = e.target.value;
-
         if (filter) {
             setFocused(true)
             props.setSearch(filter)

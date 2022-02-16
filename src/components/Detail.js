@@ -120,8 +120,12 @@ function Detail() {
 
     useEffect(() => {
         async function getQuestion() {
-          const response = await axios.get(`https://private-64010-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`);
-          setQuestion(response.data);
+            try {
+                const response = await axios.get(`https://private-64010-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`);
+                setQuestion(response.data);
+            } catch (e) {
+                console.log("error occurred", e);
+            }
         }
         getQuestion();
       }, []);

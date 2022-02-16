@@ -78,27 +78,37 @@ function Questions( ) {
 
     useEffect(() => {
         async function getHealth() {
-          const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
-          setHealth(response.data);
+            try {
+                const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
+                setHealth(response.data);
+            } catch (e) {
+                console.log("error occurred", e);
+            }
         }
         getHealth();
 
         async function getAllQuestions() {
-            const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/questions?limit=${limit}&offset=${offset}&filter=${filter}`);
-            setQuestions(response.data);
-          }
-          getAllQuestions();
+            try {
+                const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/questions?limit=${limit}&offset=${offset}&filter=${filter}`);
+                setQuestions(response.data);
+            } catch (e) {
+                console.log("error occurred", e);
+            }
+        }
+        getAllQuestions();
     }, []);
 
     const handleRefresh = async () => {
-        const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
-        setHealth(response.data);
+        try {
+            const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
+            setHealth(response.data);
+        } catch (e) {
+            console.log("error occurred", e);
+        }
     }
 
     const handleSearch = (search) => {
         setFilter(search)
-        console.log("searchOnChange: " + search)
-        console.log("filterOnChange: " + filter) // Delay of 1 change!!!
     }
 
     return (
@@ -123,7 +133,7 @@ function Questions( ) {
                         )}
                     </>
                 ) : (
-                        <Spinner animation="border" />
+                    <Spinner animation="border" />
                 )}
             </div>
         </Main>

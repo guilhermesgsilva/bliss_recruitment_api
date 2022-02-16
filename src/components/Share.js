@@ -13,7 +13,11 @@ function Share() {
 
     const handleForm = async (e) => {
         e.preventDefault();
-        await axios.post("https://private-64010-blissrecruitmentapi.apiary-mock.com/share?destination_email={email}&content_url={props.url}");
+        try { 
+            await axios.post("https://private-64010-blissrecruitmentapi.apiary-mock.com/share?destination_email={email}&content_url={props.url}");
+        } catch (e) {
+            console.log("error occurred", e);
+        }
         setEmail("");
     };
 
