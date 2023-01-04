@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Spinner from 'react-bootstrap/Spinner'
+import styled from "styled-components";
 
 import Share from "./Share";
-
-import Spinner from 'react-bootstrap/Spinner'
-
-import styled from "styled-components";
 
 const Main = styled.main`
     {
@@ -121,18 +119,18 @@ function Detail() {
     useEffect(() => {
         async function getQuestion() {
             try {
-                const response = await axios.get(`https://private-64010-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`);
+                const response = await axios.get(`https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`);
                 setQuestion(response.data);
             } catch (e) {
                 console.log("error occurred", e);
             }
         }
         getQuestion();
-      }, []);
+      }, [question.id]);
 
     const handleVote = async () => {
         const response = await axios.put(
-            `https://private-anon-cf3ea3a63b-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`,
+            `https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/questions/${question.id}`,
         );
         setQuestion(response.data);
     };
@@ -156,7 +154,7 @@ function Detail() {
                                 );
                             })}
                         </ul>
-                        <Share url={window.location.href} />
+                        <Share />
                     </>
                 ) : (
                     <Spinner animation="border" />

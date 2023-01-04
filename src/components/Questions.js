@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-
-import Search from "./Search";
-
 import Spinner from 'react-bootstrap/Spinner'
 
-import styled from "styled-components";
+import Search from "./Search";
 
 const Main = styled.main`
     {
@@ -72,35 +70,37 @@ const Main = styled.main`
 function Questions( ) {
     const [health, setHealth] = useState([]);
     const [questions, setQuestions] = useState([]);
-    const [limit, setLimit] = useState(10);
-    const [offset, setOffset] = useState(10);
+    const [limit] = useState(10);
+    const [offset] = useState(10);
     const [filter, setFilter] = useState(null);
 
     useEffect(() => {
         async function getHealth() {
             try {
-                const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
+                const response = await axios.get(`https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/health`);
                 setHealth(response.data);
             } catch (e) {
                 console.log("error occurred", e);
             }
         }
         getHealth();
+    }, []);
 
+    useEffect(() => {
         async function getAllQuestions() {
             try {
-                const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/questions?limit=${limit}&offset=${offset}&filter=${filter}`);
+                const response = await axios.get(`https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/questions?limit=${limit}&offset=${offset}&filter=${filter}`);
                 setQuestions(response.data);
             } catch (e) {
                 console.log("error occurred", e);
             }
         }
         getAllQuestions();
-    }, []);
+    }, [filter, limit, offset]);
 
     const handleRefresh = async () => {
         try {
-            const response = await axios.get(`https://private-anon-e7b3f01cb5-blissrecruitmentapi.apiary-mock.com/health`);
+            const response = await axios.get(`https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/health`);
             setHealth(response.data);
         } catch (e) {
             console.log("error occurred", e);
@@ -108,7 +108,7 @@ function Questions( ) {
     }
 
     const handleSearch = (search) => {
-        setFilter(search)
+        setFilter(search);
     }
 
     return (

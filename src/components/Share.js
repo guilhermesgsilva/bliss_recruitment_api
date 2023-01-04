@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-
 import styled from "styled-components";
 
 const Form = styled.form`
@@ -13,8 +12,9 @@ function Share() {
 
     const handleForm = async (e) => {
         e.preventDefault();
+        const url = window.location.href;
         try { 
-            await axios.post("https://private-64010-blissrecruitmentapi.apiary-mock.com/share?destination_email={email}&content_url={props.url}");
+            await axios.post(`https://private-anon-20fad0b586-blissrecruitmentapi.apiary-mock.com/share?destination_email=${email}&content_url=${url}`);
         } catch (e) {
             console.log("error occurred", e);
         }

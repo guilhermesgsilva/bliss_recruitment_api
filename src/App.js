@@ -1,13 +1,12 @@
 import './App.css';
-import { Routes, Route } from "react-router-dom";
 
+import { Routes, Route } from "react-router-dom";
+import styled from "styled-components";
 
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Questions from "./components/Questions";
 import Detail from "./components/Detail";
-
-import styled from "styled-components";
 
 const Header = styled.header`
     {

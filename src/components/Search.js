@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useSearchParams } from "react-router-dom";
+import styled from "styled-components";
 
 import Share from "./Share";
-
-import styled from "styled-components";
 
 const Styles = styled.div`
     {        
@@ -58,28 +57,28 @@ function Search (props) {
     
     let search = searchParams.get("filter") || "";
 
-    const [focused, setFocused] = useState(false)
+    const [focused, setFocused] = useState(false);
+
     const onFocus = () => {
-        setFocused(true)
-    }
+        setFocused(true);
+    };
 
     const handleChange = (e) => {
         const filter = e.target.value;
         if (filter) {
-            setFocused(true)
-            props.setSearch(filter)
+            setFocused(true);
+            props.setSearch(filter);
             setSearchParams({ filter });
-            
         } else {
             setSearchParams({});
-        }
+        };
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSearchParams("")
-        setFocused(false)
-    }
+        setSearchParams("");
+        setFocused(false);
+    };
 
     return (
         <Styles>

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import cover from '../assets/bliss-recruitment-api-cover.png';
-
 import styled from "styled-components";
+
+import cover from '../assets/bliss-recruitment-api-cover.png';
 
 const Main = styled.main`
     {
@@ -23,7 +23,6 @@ const Main = styled.main`
             margin-top: 15vh;
             margin-bottom: 0;
             font-family: "Roboto Slab";
-            ${'' /* text-shadow: 2.5px 2.5px #AAD576; */}
             -webkit-text-stroke: 0.01px #538D22;
             font-weight: bolder;
         }
