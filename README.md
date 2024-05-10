@@ -1,6 +1,6 @@
 # Bliss Recruitment Application
 
-Application developed in the context of the Bliss Applications recruitment process for the Junior Front-End Developer position.
+Application developed in the context of the [Bliss Applications](https://www.linkedin.com/company/bliss-applications/) recruitment process for the Junior Front-End Developer position.
 
 This project was built with [React.js](https://reactjs.org/).
 
